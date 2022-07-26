@@ -1,11 +1,12 @@
 import { ProductCard } from './components/ProductCard'
-import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import routes from './Routes/routes'
 
 function App() {
   return (
     <div className="App">
-      <ProductCard />
+      <Routes>{routes}</Routes>
     </div>
   )
 }
