@@ -1,11 +1,15 @@
 import React from 'react'
 
-import { Flex } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 type BodyProps = {
   content: JSX.Element
 }
 
 export default function Body(props: BodyProps): JSX.Element {
-  return <Flex minHeight="100vh">{props.content}</Flex>
+  return (
+    <Box minHeight="100vh" minW="100vw" p={10}>
+      {props.content}
+    </Box>
+  )
 }

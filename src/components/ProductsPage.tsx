@@ -1,24 +1,35 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
-import { Grid, GridItem } from '@chakra-ui/react'
+import { SimpleGrid, Center } from '@chakra-ui/react'
 
+import { ProductListContext } from '../context/ProductListContext'
 import { ProductCard } from './ProductCard'
 import PageLayout from './mainComponents/PageLayout'
+import { getProducts, ProductInterface } from '../api/getProducts'
 
 export function ProductsPage(): JSX.Element {
+  const productsListCtx = useContext(ProductListContext)
   return (
-    <Grid templateColumns="repeat(3, 1fr)" gap={10}>
-      {[...Array(10).keys()].map((_) => (
+    <SimpleGrid minChildWidth="500px" spacing={5}>
+      {productsListCtx.map((product) => (
         <>
-          <GridItem>
-            <ProductCard />
-          </GridItem>
+          <Center>
+            <ProductCard product={product} />
+          </Center>
         </>
       ))}
-    </Grid>
+    </SimpleGrid>
   )
 }
 
 export default function f(): JSX.Element {
-  return <PageLayout body={<ProductsPage />} />
+  const [productsList, setProductsList] = useState<ProductInterface[]>([])
+  useEffect(() => {
+    getProducts().then((products) => setProductsList(products))
+  }, [])
+  return (
+    <ProductListContext.Provider value={productsList}>
+      <PageLayout body={<ProductsPage />} />
+    </ProductListContext.Provider>
+  )
 }

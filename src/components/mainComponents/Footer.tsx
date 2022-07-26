@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react'
 
 export default function Footer(): JSX.Element {
+  // Abstract elements from this element on "utils" that can contain grids related
+  // to the design specified
   return (
     <Box marginTop="auto" p="4">
       <VStack>

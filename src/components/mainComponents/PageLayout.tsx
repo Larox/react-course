@@ -12,7 +12,13 @@ type LayoutProps = {
 
 export default function PageLayout({ body }: LayoutProps): JSX.Element {
   return (
-    <Grid templateRows="repeat(3, auto)" gap={3}>
+    <Grid
+      templateRows="repeat(3, auto)"
+      templateColumns="1"
+      h="100vh"
+      w="100vw"
+      gap={3}
+    >
       <GridItem rowSpan={1}>
         <NavBar />
       </GridItem>
