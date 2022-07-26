@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { Route } from 'react-router-dom'
-import { ProductCard } from '../components/ProductCard'
-import { NavBar } from '../components/NavBar'
+import { Cart } from '../components/mainComponents/Cart'
+import ProductsPage from '../components/ProductsPage'
 
 export default [
-  <Route path="/" element={<ProductCard />} />,
-  <Route path="/foo" element={<NavBar />} />,
+  <Route path="/" element={<ProductsPage />} />,
+  <Route path="/cart" element={<Cart />} />,
 ]
